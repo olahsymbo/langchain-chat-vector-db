@@ -20,17 +20,13 @@ if os.path.exists(os.path.join(HOME, "chroma_storage")):
 
 os.makedirs(os.path.join(HOME, "chroma_storage"), exist_ok=True)
 
-data_url = "" # add a url to the file here
-
 uuid_memory = str(uuid.uuid4())
 temp_save_directory = os.path.join(HOME, 'dataset')
 
-filename = os.path.basename(data_url)
-save_path = os.path.join(temp_save_directory, filename)
+filename = "" # add the file name here
+data_path = os.path.join(temp_save_directory, filename)
 
-urllib.request.urlretrieve(data_url, save_path)
-
-cht_mdl = DocService(save_path, persist_directory=os.path.join(HOME, "chroma_storage", uuid_memory))
+cht_mdl = DocService(data_path, persist_directory=os.path.join(HOME, "chroma_storage", uuid_memory))
 cht_mdl.fetch_document()
 cht_mdl.create_vector_index()
 
