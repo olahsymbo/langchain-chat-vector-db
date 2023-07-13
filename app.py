@@ -10,11 +10,6 @@ load_dotenv()
 
 HOME = os.path.dirname(os.path.abspath(__file__))
 
-if os.path.exists(os.path.join(HOME, "dataset")):
-    shutil.rmtree(os.path.join(HOME, "dataset"))
-
-os.makedirs(os.path.join(HOME, "dataset"), exist_ok=True)
-
 if os.path.exists(os.path.join(HOME, "chroma_storage")):
     shutil.rmtree(os.path.join(HOME, "chroma_storage"))
 
